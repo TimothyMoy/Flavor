@@ -1,28 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Container
+} from 'reactstrap';
 
-function Navbar () {
-  return (
-    <div>
-      <p>Logo</p>
-      <ul>
-        <li>
-          <a href='/'>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href='/recipes'>
-            Recipes
-          </a>
-        </li>
-        <li>
-          <a href='/login'>
-            Login
-          </a>
-        </li>
-      </ul>
-    </div>
-  )
+
+class AppNavbar extends Component {
+  state ={
+    isOpen:false
+  }
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  render(){
+    return (
+      <div>
+        <Navbar color="dark" dark expand="sm" className="mb-5">
+          <Container>
+            <NavbarBrand href="/">Logo</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/recipes">
+                    Recipes
+                  </NavLink>
+                  <NavLink href="/login">
+                    Login
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+      </div>
+    )
+  }
 }
 
-export default Navbar;
+
+export default AppNavbar;

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Routes from './Config/Routes';
-import Navbar from './Components/Navbar/Navbar';
+import AppNavbar from './Components/Navbar/Navbar';
 
-function App() {
-  return (
-    <div>
-      <Navbar />
-      { Routes }
-    </div>
-  );
+class App extends Component {
+  render(){
+    return (
+      <div>
+        <AppNavbar />
+        { Routes }
+      </div>
+    );
+  }
 }
 
 export default App;
