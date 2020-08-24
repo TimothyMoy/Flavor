@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MOGODB_URI = 'mongodb://localhost:27017/';
+const MOGODB_URI = 'mongodb://localhost:27017/flavor';
 
 mongoose.connect(MOGODB_URI, {
   useNewUrlParser: true,
@@ -13,5 +13,5 @@ mongoose.connect(MOGODB_URI, {
 
 
 module.exports = {
-  
+  Recipe: require('../models/Recipes',)
 };
