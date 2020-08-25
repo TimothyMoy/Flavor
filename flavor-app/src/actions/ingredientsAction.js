@@ -12,3 +12,10 @@ export const deleteIngredients = id => {
     payload: id
   };
 };
+
+export const addIngredients = ingredient => {
+  return {
+    type: ADD_INGREDIENTS,
+    payload: ingredient
+  };
+};

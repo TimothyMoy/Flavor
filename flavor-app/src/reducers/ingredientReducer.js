@@ -16,6 +16,18 @@ export default function(state = initialState, action) {
       return {
         ...state
       };
+
+    case DELETE_INGREDIENTS:
+      return {
+        ...state,
+        ingredients: state.ingredients.filter(ingredients => ingredients.id !== action.payload)
+      };
+
+    case ADD_INGREDIENTS:
+    return {
+      ...state,
+      ingredients: [action.payload, ...state.ingredients]
+    }
     default:
       return state;
   }
