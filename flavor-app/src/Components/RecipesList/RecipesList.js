@@ -1,20 +1,18 @@
 import React, { Component} from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import {v1 as uuid} from 'uuid';
+import { connect } from 'react-redux';
+import { getRecipes, deleteRecipes } from '../../actions/recipesAction';
+import PropTypes from 'prop-types';
 
 class RecipesList extends Component {
-  state = {
-    recipes: [
-      { id: uuid(), name:'Eggs' },
-      { id: uuid(), name:'Milk' },
-      { id: uuid(), name:'Steak' },
-      { id: uuid(), name:'Water' },
-    ]
+  
+  componentDidMount(){
+    this.props.getRecipes()
   }
 
   render() {
-    const { recipes } = this.state;
+    const { recipes } = this.props.recipes;
     return (
       <Container>
       <div>
@@ -67,4 +65,13 @@ class RecipesList extends Component {
   }
 }
 
-export default RecipesList;
+RecipesList.propTypes = {
+  getRecipes: PropTypes.func.isRequired,
+  recipes: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  recipes: state.recipes
+})
+
+export default connect(mapStateToProps, {getRecipes,deleteRecipes})(RecipesList);
