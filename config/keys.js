@@ -13,5 +13,6 @@ mongoose.connect(MOGODB_URI, {
 
 
 module.exports = {
-  Recipe: require('../models/Recipes',)
+  Recipe: require('../models/Recipes',),
+  Ingredient: require('../models/Ingredients')
 };

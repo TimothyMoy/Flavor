@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getIngredients, deleteIngredients, addIngredients } from '../../actions/ingredientsAction';
 import PropTypes from 'prop-types';
 import ingredientReducer from '../../reducers/ingredientReducer';
-import { v1 as uuid } from 'uuid';
+
 
 
 class EditIngredientsList extends Component {
@@ -26,7 +26,6 @@ class EditIngredientsList extends Component {
     e.preventDefault();
 
     const newIngredient ={
-      id: uuid(),
       name: this.state.name
     }
 
@@ -60,14 +59,14 @@ class EditIngredientsList extends Component {
         </Form>
         <ListGroup>
           <TransitionGroup className="ingredients-list">
-            {ingredients.map(({id,name}) => (
-              <CSSTransition key={id} timeout={500} classNames="fade">
+            {ingredients.map(({_id,name}) => (
+              <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   <Button 
                     className="remove-btn"
                     color="danger"
                     size="sm"
-                    onClick={this.onDeleteClick.bind(this, id)}
+                    onClick={this.onDeleteClick.bind(this, _id)}
                   >&times;
                   </Button>
                   {name}
@@ -87,7 +86,7 @@ EditIngredientsList.propTypes = {
   ingredients: PropTypes.object.isRequired
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   ingredients: state.ingredients
 })
 

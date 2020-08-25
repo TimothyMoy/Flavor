@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const recipes = require('./routes/api/Recipes');
+const ingredients = require('./routes/api/Ingredients');
 const app = express();
 
 // DB Config
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 
 //Use Routes
 app.use('/api/Recipes', recipes)
+app.use('/api/Ingredients', ingredients)
 
 
 const PORT = process.env.PORT || 4000;
