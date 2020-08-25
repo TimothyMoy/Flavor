@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MOGODB_URI = 'mongodb://localhost:27017/flavor';
+const MOGODB_URI = 'mongodb+srv://moytimothy:pockys55@cluster0.qqj9k.mongodb.net/flavor?retryWrites=true&w=majority';
 
 mongoose.connect(MOGODB_URI, {
   useNewUrlParser: true,

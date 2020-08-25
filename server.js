@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+
 const recipes = require('./routes/api/Recipes');
-const ingredients = require('./routes/api/Ingredients');
+
 const app = express();
 
 // DB Config
@@ -11,12 +11,13 @@ const db = require('./config/keys').mongoURI
 //----------Middleware-----------
 
 //BodyParser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 
 //Use Routes
 app.use('/api/Recipes', recipes)
-app.use('/api/Ingredients', ingredients)
+app.use('/api/Ingredients', require('./routes/api/Ingredients'));
+app.use('/api/Users', require('./routes/api/Users'));
 
 
 const PORT = process.env.PORT || 4000;
