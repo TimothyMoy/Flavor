@@ -6,13 +6,8 @@ import { getRecipes, deleteRecipes } from '../../actions/recipesAction';
 import PropTypes from 'prop-types';
 
 class RecipesList extends Component {
-  
-  componentDidMount(){
-    this.props.getRecipes()
-  }
-
+ 
   render() {
-    const { recipes } = this.props.recipes;
     return (
       <Container>
       <div>
@@ -27,51 +22,14 @@ class RecipesList extends Component {
             </a>
           </button>
         </div>
+       
       </div>
-        <Button 
-          color="dark"
-          style={{marginBottom: '2rem'}}
-          onClick={() =>{
-            const name = prompt('Enter Recipe');
-            if(name) {
-              this.setState(state => ({
-                recipes: [...state.recipes, { id: uuid(), name }]
-              }));
-            }
-          }}>Add Item</Button>
-          <ListGroup>
-            <TransitionGroup className="recipe-list">
-              {recipes.map(({id,name}) => (
-                <CSSTransition key={id} timeout={500} classNames="fade">
-                  <ListGroupItem>
-                    <Button 
-                      className="remove-btn"
-                      color="danger"
-                      size="sm"
-                      onClick={()=> {
-                        this.setState(state => ({
-                          recipes: state.recipes.filter(recipes => recipes.id !== id)
-                        }));
-                      }}
-                    >&times;</Button>
-                    {name}
-                    </ListGroupItem>
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
-          </ListGroup>
+        
       </Container>
     )
   }
 }
 
-RecipesList.propTypes = {
-  getRecipes: PropTypes.func.isRequired,
-  recipes: PropTypes.object.isRequired
-}
 
-const mapStateToProps = (state) => ({
-  recipes: state.recipes
-})
 
-export default connect(mapStateToProps, {getRecipes,deleteRecipes})(RecipesList);
+export default RecipesList;
