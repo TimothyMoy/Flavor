@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('config');
-const recipes = require('./routes/api/Recipes');
 
 const app = express();
 
@@ -25,7 +24,7 @@ mongoose.connect(db, {
   .catch((err) => console.log(`MongoDB connection error: ${err}`));
 
 //Use Routes
-app.use('/api/Recipes', recipes)
+app.use('/api/Recipes',require('./routes/api/Recipes'));
 app.use('/api/Ingredients', require('./routes/api/Ingredients'));
 app.use('/api/Users', require('./routes/api/Users'));
 app.use('/api/auth', require('./routes/api/auth'));
