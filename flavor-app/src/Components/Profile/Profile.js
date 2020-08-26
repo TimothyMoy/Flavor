@@ -1,26 +1,33 @@
-import React from 'react';
+import React , { Component } from 'react';
+import { Container, ListGroup, ListGroupItem, Button, Input, Form, FormGroup, Label } from 'reactstrap';
 
-function Profile () {
-  return (
-    <div>
-      <div>
-        <h2>Username</h2>
-        <img src="https://picsum.photos/200
-" alt="profile"></img>
-        <p>Edit Profile</p>
-      </div>
+class Profile extends Component {
+  render() {
+
+    return (
+      <Container>
       <div>
         <div>
-          About
+          <h2>Username</h2>
+          <img src="https://picsum.photos/200
+  " alt="profile"></img>
+          <p>Edit Profile</p>
         </div>
         <div>
-          <p>Your Recipes</p>
-          <p>Favorites</p>
-          <div>Recipe placeholder</div>
+          <div>
+            About
+          </div>
+          <div>
+            <p>Your Recipes</p>
+            <p>Favorites</p>
+            <div>Recipe placeholder</div>
+          </div>
         </div>
       </div>
-    </div>
-  )
+      </Container>
+    )
+  }
+  
 }
 
 export default Profile;

@@ -52,9 +52,9 @@ router.post('/', (req, res) => {
     })
 });
 
-//@route post api/auth
-//@desc Auth user
-//@access Public
+//@route post api/auth/user
+//@desc get user data
+//@access Private
 
 router.get('/user', auth, (req, res) => {
   User.findById(req.user.id)
