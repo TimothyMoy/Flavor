@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Recipes model
 const Recipes = require('../../models/Recipes');
-const { Recipe } = require('../../config/keys');
+
 
 //@route GET api/recipes
 //@desc GET ALL Recipes
