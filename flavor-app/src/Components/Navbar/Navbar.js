@@ -36,7 +36,11 @@ class AppNavbar extends Component {
       <Fragment>
         <NavItem>
           <span className="navbar-text mr-3">
-          <strong>{ user ? `Welcome ${user.name}`: ''}</strong>
+          <strong>
+            <a href="/profile">
+              { user ? `Welcome ${user.name}`: ''}
+            </a>
+          </strong>
           </span>
         </NavItem>
         <NavItem>

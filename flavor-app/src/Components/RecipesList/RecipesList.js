@@ -1,10 +1,6 @@
 import React, { Component} from 'react';
 import { Container, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Col, Button } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { connect } from 'react-redux';
-import { getRecipes, deleteRecipes } from '../../actions/recipesAction';
-import PropTypes from 'prop-types';
 
 class RecipesList extends Component {
  

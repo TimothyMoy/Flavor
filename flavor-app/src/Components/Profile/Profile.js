@@ -1,9 +1,19 @@
 import React , { Component } from 'react';
-import { Container, Row, Col, Button, Input, Form, FormGroup, Label } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Profile extends Component {
-  render() {
+  state ={
+    isOpen:true
+  }
 
+  static propTypes ={
+    auth: PropTypes.object.isRequired
+  }
+
+  render() {
+    const { isAuthenticated, user } = this.props.auth;
     return (
       <Container>
       <Row>
@@ -11,9 +21,9 @@ class Profile extends Component {
           <img src="https://picsum.photos/100" alt="profile"></img>
         </Col>
         <Col  xs="10">
-          <h2>Username</h2>
+          <h2>{ user ? `${user.name}`: ''}</h2>
           <Button>
-            <a href="/recipes">
+            <a href="/editprofile">
               Edit Profile
             </a>
           </Button>
@@ -41,4 +51,8 @@ class Profile extends Component {
   
 }
 
-export default Profile;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, null)(Profile);
