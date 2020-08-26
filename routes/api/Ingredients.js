@@ -11,7 +11,7 @@ const Ingredients = require('../../models/Ingredients');
 //@access Public
 
 router.get('/', (req, res) => {
-  Ingredient.find()
+  Ingredients.find()
     .sort({ date: -1 })
     .then(ingredients => res.json(ingredients))
 });

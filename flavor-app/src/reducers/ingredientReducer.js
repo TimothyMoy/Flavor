@@ -1,5 +1,4 @@
 import { GET_INGREDIENTS, ADD_INGREDIENTS, DELETE_INGREDIENTS, INGREDIENTS_LOADING } from '../actions/types';
-import {v1 as uuid} from 'uuid';
 
 const initialState = {
     ingredients: [],
