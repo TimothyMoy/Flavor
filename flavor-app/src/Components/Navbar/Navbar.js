@@ -44,6 +44,11 @@ class AppNavbar extends Component {
           </span>
         </NavItem>
         <NavItem>
+          <NavLink href="/recipes">
+            Recipes
+          </NavLink>
+        </NavItem>
+        <NavItem>
           <Logout />
         </NavItem>
       </Fragment>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_RECIPES, ADD_RECIPES, DELETE_RECIPES, RECIPES_LOADING } from '../actions/types';
+import { GET_RECIPES, ADD_RECIPES, DELETE_RECIPES, RECIPES_LOADING } from './types';
 import { tokenConfig } from './authAction';
 import { returnErrors } from './errorAction';
 

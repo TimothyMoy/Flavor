@@ -25,7 +25,6 @@ mongoose.connect(db, {
 
 //Use Routes
 app.use('/api/Recipes',require('./routes/api/Recipes'));
-app.use('/api/Ingredients', require('./routes/api/Ingredients'));
 app.use('/api/Users', require('./routes/api/Users'));
 app.use('/api/auth', require('./routes/api/auth'));
 

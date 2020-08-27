@@ -3,45 +3,38 @@ const router = express.Router();
 const config = require('config');
 const auth = require('../../middleware/auth');
 
-// Recipes model
+// Ingredients model
 const Recipes = require('../../models/Recipes');
 
-
-//@route GET api/recipes
-//@desc GET ALL Recipes
+//@route GET api/ingredients
+//@desc GET ALL Ingredients
 //@access Public
 
 router.get('/', (req, res) => {
   Recipes.find()
     .sort({ date: -1 })
-    .then(recipes => res.json(recipes))
-
-
+    .then(ingredients => res.json(ingredients))
 });
 
-//@route POST api/recipes
-//@desc Create a recipe
-//@access Public
+//@route POST api/ingredients
+//@desc Create a Ingredient
+//@access Private
 
-router.post('/', (req, res) => {
-  const newRecipe = new Recipes({
-    title: req.body.title,
-    body: req.body.body,
-    picture: req.body.picture,
-    instructions: req.body.instructions,
-    ingredients: req.body.ingredients,
+router.post('/', auth, (req, res) => {
+  const newRecipes = new Recipes({
+    name: req.body.name
   });
 
-  newRecipe.save().then(recipes =>res.json(recipes))
+  newRecipes.save().then(ingredients =>res.json(ingredients))
 });
 
-//@route DELETE api/recipes/:id
-//@desc Delete a recipe
-//@access Public
+//@route DELETE api/ingredients/:id
+//@desc Delete a Ingredient
+//@access Private
 
-router.delete('/:id',(req, res) => {
+router.delete('/:id', auth, (req, res) => {
   Recipes.findById(req.params.id)
-    .then(recipes => recipes.remove().then(() => res.json({success: true})))
+    .then(ingredients => ingredients.remove().then(() => res.json({success: true})))
     .catch(err => res.status(404).json({success: false}));
 });
 

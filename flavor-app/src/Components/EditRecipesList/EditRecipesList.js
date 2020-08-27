@@ -1,14 +1,13 @@
 import React, { Component} from 'react';
-import { Container, ListGroup, ListGroupItem, Button, Input, Form, FormGroup, Label, Col, Row } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Button, Input, Form, FormGroup, Label } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getRecipes, deleteRecipes, addRecipes } from '../../actions/recipesAction';
 import PropTypes from 'prop-types';
-import RecipeReducer from '../../reducers/recipeReducer';
+import NewRecipes from '../NewRecipes/NewRecipes';
 
 
-
-class newRecipeForm extends Component {
+class EditRecipesList extends Component {
   
   componentDidMount(){
     this.props.getRecipes()
@@ -38,62 +37,28 @@ class newRecipeForm extends Component {
     const { recipes } = this.props.recipes;
     return (
       <Container>
+      <div>
+        <NewRecipes></NewRecipes>
         <Form onSubmit={this.onSubmit}>
           <FormGroup>
-            <Row>
-            <Col>
-              <Label for="item">Recipe</Label>
-              <Button
-              color='dark'
-              style={{marginTop: '2rem'}}
-              >
-                Add Recipe
-              </Button>
-            </Col>
-            </Row>
-            <Row>
+            <Label for="recipes">Recipes</Label>
             <Input
               type="text"
-              name="title"
+              name="name"
               id="recipes"
-              placeholder="Add title"
+              placeholder="Add Recipes"
               onChange={this.onChange}
               />
-              <Input
-              type="text"
-              name="title"
-              id="recipes"
-              placeholder="Add body"
-              onChange={this.onChange}
-              />
-            </Row>
-            <img src="https://picsum.photos/200" alt="food hero" />
-            <Row>
-              <Col>
-              <p>ingredients</p>
-                <Input
-                  type="text"
-                  name="title"
-                  id="recipes"
-                  placeholder="Add ingredients"
-                  onChange={this.onChange}
-                  />
-              </Col>
-              <Col>
-                <p>Directions</p>
-                <Input
-                type="text"
-                name="title"
-                id="recipes"
-                placeholder="Add instructions"
-                onChange={this.onChange}
-                />
-              </Col>
-            </Row>
+            <Button
+            color='dark'
+            style={{marginTop: '2rem'}}
+            >
+              Add Recipes
+            </Button>
           </FormGroup>
         </Form>
         <ListGroup>
-          <TransitionGroup className="recipe-list">
+          <TransitionGroup className="recipes-list">
             {recipes.map(({_id,name}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
@@ -110,12 +75,13 @@ class newRecipeForm extends Component {
             ))}
           </TransitionGroup>
         </ListGroup>
+      </div>
       </Container>
     )
   }
 }
 
-newRecipeForm.propTypes = {
+EditRecipesList.propTypes = {
   getRecipes: PropTypes.func.isRequired,
   recipes: PropTypes.object.isRequired
 }
@@ -124,4 +90,4 @@ const mapStateToProps = state => ({
   recipes: state.recipes
 })
 
-export default connect(mapStateToProps, {getRecipes, deleteRecipes, addRecipes})(newRecipeForm);
+export default connect(mapStateToProps, {getRecipes, deleteRecipes, addRecipes})(EditRecipesList);

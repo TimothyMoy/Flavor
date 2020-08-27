@@ -12,10 +12,10 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getIngredients, addIngredients } from '../../actions/ingredientsAction';
+import { getRecipes, addRecipes } from '../../actions/recipesAction';
 
 
-class IngredientModal extends Component {
+class RecipesModal extends Component {
   state ={
     modal: false,
     name: '',
@@ -29,7 +29,7 @@ class IngredientModal extends Component {
   };
 
   componentDidMount(){
-    this.props.getIngredients()
+    this.props.getRecipes()
   };
 
   toggle = () => {
@@ -46,41 +46,41 @@ class IngredientModal extends Component {
     e.preventDefault();
 
     const { email, password } = this.state;
-    const ingredient = {
+    const recipes = {
       email,
       password
     }
 
-    const newIngredient ={
+    const newRecipes ={
       name: this.state.name
     }
 
     // add item via add item action
-    this.props.addIngredients(newIngredient);
+    this.props.addRecipes(newRecipes);
   };
 
   render() {
     return(
       <div>
         <Button onClick={this.toggle}>
-          add Ingredient
+          add Recipes
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Add Ingredient</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Add Recipes</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <Label for="name">Name</Label>
               <Input
                 type="text"
                 name="name"
-                id="ingredients"
+                id="recipes"
                 placeholder="name"
                 className="mb-3"
                 onChange={this.onChange}
                 />
 
                 <Button color="dark" style={{marginTop: "2rem" }} block>
-                  Add Ingredient
+                  Add Recipes
                 </Button>
             </Form>
           </ModalBody>
@@ -90,15 +90,15 @@ class IngredientModal extends Component {
   } 
 }
 
-IngredientModal.propTypes = {
-  getIngredients: PropTypes.func.isRequired,
-  ingredients: PropTypes.object.isRequired
+RecipesModal.propTypes = {
+  getRecipes: PropTypes.func.isRequired,
+  recipes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  ingredients: state.ingredients
+  recipes: state.recipes
 })
 
 
 
-export default connect(mapStateToProps, { getIngredients, addIngredients })(IngredientModal);
+export default connect(mapStateToProps, { getRecipes, addRecipes })(RecipesModal);
