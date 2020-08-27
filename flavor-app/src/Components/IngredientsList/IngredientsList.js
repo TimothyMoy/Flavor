@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 import { getIngredients, deleteIngredients, addIngredients } from '../../actions/ingredientsAction';
 import PropTypes from 'prop-types';
 import ingredientReducer from '../../reducers/ingredientReducer';
-import newIngredient from '../NewIngredient/NewIngredient';
-import NewIngredient from '../NewIngredient/NewIngredient';
 
 
-class EditIngredientsList extends Component {
+
+class IngredientsList extends Component {
   
   componentDidMount(){
     this.props.getIngredients()
@@ -40,37 +39,12 @@ class EditIngredientsList extends Component {
     return (
       <Container>
       <div>
-        <NewIngredient></NewIngredient>
-        <Form onSubmit={this.onSubmit}>
-          <FormGroup>
-            <Label for="ingredient">Ingredients</Label>
-            <Input
-              type="text"
-              name="name"
-              id="ingredients"
-              placeholder="Add Ingredient"
-              onChange={this.onChange}
-              />
-            <Button
-            color='dark'
-            style={{marginTop: '2rem'}}
-            >
-              Add Item
-            </Button>
-          </FormGroup>
-        </Form>
+       
         <ListGroup>
           <TransitionGroup className="ingredients-list">
             {ingredients.map(({_id,name}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
-                  <Button 
-                    className="remove-btn"
-                    color="danger"
-                    size="sm"
-                    onClick={this.onDeleteClick.bind(this, _id)}
-                  >&times;
-                  </Button>
                   {name}
                 </ListGroupItem>
               </CSSTransition>
@@ -83,7 +57,7 @@ class EditIngredientsList extends Component {
   }
 }
 
-EditIngredientsList.propTypes = {
+IngredientsList.propTypes = {
   getIngredients: PropTypes.func.isRequired,
   ingredients: PropTypes.object.isRequired
 }
@@ -92,4 +66,4 @@ const mapStateToProps = state => ({
   ingredients: state.ingredients
 })
 
-export default connect(mapStateToProps, {getIngredients, deleteIngredients, addIngredients})(EditIngredientsList);
+export default connect(mapStateToProps, {getIngredients, deleteIngredients, addIngredients})(IngredientsList);
