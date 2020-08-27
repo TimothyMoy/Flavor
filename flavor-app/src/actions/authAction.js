@@ -75,9 +75,9 @@ export const login = ({ email, password }) => dispatch => {
       payload: res.data
     }))
     .catch(err => {
-      dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
+      dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'));
       dispatch({
-        type: REGISTER_FAIL
+        type: LOGIN_FAIL
       })
     })
 
