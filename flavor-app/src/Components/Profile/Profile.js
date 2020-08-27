@@ -24,13 +24,14 @@ class Profile extends Component {
         </Col>
         <Col  xs="10">
           <h2>{ user ? `${user.name}`: ''}</h2>
-          <Button>
+          <Button className="btn-primary">
             <a href="/editprofile">
               Edit Profile
             </a>
           </Button>
         </Col>
       </Row>
+      <hr></hr>
       <Row>
         <Col xs="4">
         <h2>About</h2>

@@ -7,8 +7,6 @@ import {
   Form,
   Label,
   Input,
-  NavLink,
-  Alert
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -60,7 +58,7 @@ class RecipesModal extends Component {
   render() {
     return(
       <div>
-        <Button onClick={this.toggle}>
+        <Button className="btn-primary" onClick={this.toggle}>
           add Recipes
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -79,7 +77,7 @@ class RecipesModal extends Component {
 
               <Label for="subtitle">Body</Label>
                 <Input
-                type="text"
+                type="textarea"
                 name="subtitle"
                 id="recipes"
                 placeholder="body"
@@ -87,17 +85,17 @@ class RecipesModal extends Component {
                 onChange={this.onChange}
                 />
 
-                <Label for="picture">Image</Label>
+                <Label for="picture">Image Link</Label>
                 <Input
                 type="text"
                 name="picture"
                 id="recipes"
-                placeholder="body"
+                placeholder="image Link"
                 className="mb-3"
                 onChange={this.onChange}
                 />
 
-                <Button color="dark" style={{marginTop: "2rem" }} block>
+                <Button  className="btn-primary" style={{marginTop: "2rem" }} block>
                   Add Recipes
                 </Button>
             </Form>

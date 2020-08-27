@@ -1,10 +1,10 @@
 import React, { Component} from 'react';
-import { Container, ListGroup, ListGroupItem, Button, Row, Col, Card, CardTitle, CardImg, CardBody, CardText } from 'reactstrap';
+import { Container, Button, Row, Col, Card, CardTitle, CardImg, CardBody, CardText } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getRecipes, deleteRecipes, addRecipes } from '../../actions/recipesAction';
 import PropTypes from 'prop-types';
-import NewRecipes from '../NewRecipes/NewRecipes';
+
 
 
 class EditRecipesList extends Component {
@@ -40,11 +40,10 @@ class EditRecipesList extends Component {
     return (
       <Container>
       <div>
-        <ListGroup>
+        <Row>
           <TransitionGroup className="recipes-list">
             {recipes.map(({_id,name,subtitle, picture}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
-                <Row>
                   <Col xs="4">
                     <Button 
                       className="remove-btn"
@@ -58,15 +57,14 @@ class EditRecipesList extends Component {
                     <CardImg top width="10%" src={`${picture}`} alt="Food image cap" />
                     <CardBody>
                     <CardText> {subtitle}</CardText>
-                    <Button><a href="/recipe">View Recipe</a></Button>
+                    <Button className="btn-primary"><a href="/recipe">View Recipe</a></Button>
                     </CardBody>
                     </Card>
                     </Col>
-                </Row>
               </CSSTransition>
             ))}
           </TransitionGroup>
-        </ListGroup>
+        </Row>
       </div>
       </Container>
     )

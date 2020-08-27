@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
-import EditRecipesList from '../EditRecipesList/EditRecipesList';
-import RecipesList from '../RecipesList/RecipesList';
+import { Container } from 'reactstrap';
 
 class Recipes extends Component {
   render() {

@@ -51,7 +51,7 @@ class RecipesList extends Component {
                     <CardImg top width="10%" src={`${picture}`} alt="Food image cap" />
                     <CardBody>
                     <CardText> {subtitle}</CardText>
-                    <Button><a href="/recipe">View Recipe</a></Button>
+                    <Button className="btn-primary"><a href={`recipes/${recipes._id}`}>View Recipe</a></Button>
                     </CardBody>
                     </Card>
                     </Col>

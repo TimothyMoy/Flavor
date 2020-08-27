@@ -35,7 +35,6 @@ export const deleteRecipes = id => (dispatch, getState) => {
   .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
-
 export const setRecipesLoading = () => {
   return {
     type: RECIPES_LOADING
