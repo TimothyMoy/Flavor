@@ -1,10 +1,9 @@
 import React, { Component} from 'react';
-import { Container, ListGroup, ListGroupItem, Button, Input, Form, FormGroup, Label } from 'reactstrap';
+import { Container, ListGroup, Col, Button, Row, Card, CardTitle, CardImg, CardBody, CardText } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getRecipes, deleteRecipes, addRecipes } from '../../actions/recipesAction';
 import PropTypes from 'prop-types';
-
 
 
 class RecipesList extends Component {
@@ -18,14 +17,16 @@ class RecipesList extends Component {
   };
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value});
+    this.setState({ [e.target.title]: e.target.value});
   };
 
   onSubmit = e => {
     e.preventDefault();
 
     const newRecipes ={
-      name: this.state.name
+      name: this.state.name,
+      subtitle: this.state.subtitle,
+      picture: this.state.picture
     }
 
     // add item via add item action
@@ -38,16 +39,25 @@ class RecipesList extends Component {
     return (
       <Container>
       <div>
-       
+        <h1>New Recipes</h1>
         <ListGroup>
           <TransitionGroup className="recipes-list">
-            {recipes.map(({_id,name}) => (
+            <Row>
+            {recipes.map(({_id,name, picture, subtitle}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
-                <ListGroupItem>
-                  {name}
-                </ListGroupItem>
+                    <Col xs="3">
+                    <Card>
+                    <CardTitle>{name}</CardTitle>
+                    <CardImg top width="10%" src={`${picture}`} alt="Food image cap" />
+                    <CardBody>
+                    <CardText> {subtitle}</CardText>
+                    <Button><a href="/recipe">View Recipe</a></Button>
+                    </CardBody>
+                    </Card>
+                    </Col>
               </CSSTransition>
             ))}
+            </Row>
           </TransitionGroup>
         </ListGroup>
       </div>

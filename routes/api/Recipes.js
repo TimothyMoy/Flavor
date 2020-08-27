@@ -6,35 +6,37 @@ const auth = require('../../middleware/auth');
 // Ingredients model
 const Recipes = require('../../models/Recipes');
 
-//@route GET api/ingredients
-//@desc GET ALL Ingredients
+//@route GET api/recipes
+//@desc GET ALL recipes
 //@access Public
 
 router.get('/', (req, res) => {
   Recipes.find()
     .sort({ date: -1 })
-    .then(ingredients => res.json(ingredients))
+    .then(recipes => res.json(recipes))
 });
 
-//@route POST api/ingredients
-//@desc Create a Ingredient
+//@route POST api/recipes
+//@desc Create a recipes
 //@access Private
 
 router.post('/', auth, (req, res) => {
   const newRecipes = new Recipes({
-    name: req.body.name
+    name: req.body.name,
+    subtitle: req.body.subtitle,
+    picture: req.body.picture
   });
 
-  newRecipes.save().then(ingredients =>res.json(ingredients))
+  newRecipes.save().then(recipes =>res.json(recipes))
 });
 
-//@route DELETE api/ingredients/:id
-//@desc Delete a Ingredient
+//@route DELETE api/recipes/:id
+//@desc Delete a recipes
 //@access Private
 
 router.delete('/:id', auth, (req, res) => {
   Recipes.findById(req.params.id)
-    .then(ingredients => ingredients.remove().then(() => res.json({success: true})))
+    .then(recipes => recipes.remove().then(() => res.json({success: true})))
     .catch(err => res.status(404).json({success: false}));
 });
 

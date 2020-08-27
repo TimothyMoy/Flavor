@@ -19,6 +19,7 @@ class RecipesModal extends Component {
   state ={
     modal: false,
     name: '',
+    subtitle: '',
   };
 
   static propTypes = {
@@ -45,14 +46,11 @@ class RecipesModal extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const { email, password } = this.state;
-    const recipes = {
-      email,
-      password
-    }
 
     const newRecipes ={
-      name: this.state.name
+      name: this.state.name,
+      subtitle: this.state.subtitle,
+      picture: this.state.picture,
     }
 
     // add item via add item action
@@ -69,12 +67,32 @@ class RecipesModal extends Component {
           <ModalHeader toggle={this.toggle}>Add Recipes</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
-              <Label for="name">Name</Label>
+              <Label for="name">Title</Label>
               <Input
                 type="text"
                 name="name"
                 id="recipes"
-                placeholder="name"
+                placeholder="title"
+                className="mb-3"
+                onChange={this.onChange}
+                />
+
+              <Label for="subtitle">Body</Label>
+                <Input
+                type="text"
+                name="subtitle"
+                id="recipes"
+                placeholder="body"
+                className="mb-3"
+                onChange={this.onChange}
+                />
+
+                <Label for="picture">Image</Label>
+                <Input
+                type="text"
+                name="picture"
+                id="recipes"
+                placeholder="body"
                 className="mb-3"
                 onChange={this.onChange}
                 />

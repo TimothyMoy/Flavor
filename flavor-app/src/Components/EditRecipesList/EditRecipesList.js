@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Container, ListGroup, ListGroupItem, Button, Input, Form, FormGroup, Label } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Button, Row, Col, Card, CardTitle, CardImg, CardBody, CardText } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getRecipes, deleteRecipes, addRecipes } from '../../actions/recipesAction';
@@ -25,7 +25,9 @@ class EditRecipesList extends Component {
     e.preventDefault();
 
     const newRecipes ={
-      name: this.state.name
+      name: this.state.name,
+      subtitle: this.state.subtitle,
+      picture: this.state.picture
     }
 
     // add item via add item action
@@ -38,39 +40,29 @@ class EditRecipesList extends Component {
     return (
       <Container>
       <div>
-        <NewRecipes></NewRecipes>
-        <Form onSubmit={this.onSubmit}>
-          <FormGroup>
-            <Label for="recipes">Recipes</Label>
-            <Input
-              type="text"
-              name="name"
-              id="recipes"
-              placeholder="Add Recipes"
-              onChange={this.onChange}
-              />
-            <Button
-            color='dark'
-            style={{marginTop: '2rem'}}
-            >
-              Add Recipes
-            </Button>
-          </FormGroup>
-        </Form>
         <ListGroup>
           <TransitionGroup className="recipes-list">
-            {recipes.map(({_id,name}) => (
+            {recipes.map(({_id,name,subtitle, picture}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
-                <ListGroupItem>
-                  <Button 
-                    className="remove-btn"
-                    color="danger"
-                    size="sm"
-                    onClick={this.onDeleteClick.bind(this, _id)}
-                  >&times;
-                  </Button>
-                  {name}
-                </ListGroupItem>
+                <Row>
+                  <Col xs="4">
+                    <Button 
+                      className="remove-btn"
+                      color="danger"
+                      size="sm"
+                      onClick={this.onDeleteClick.bind(this, _id)}
+                    >&times;
+                    </Button>
+                    <Card>
+                    <CardTitle>{name}</CardTitle>
+                    <CardImg top width="10%" src={`${picture}`} alt="Food image cap" />
+                    <CardBody>
+                    <CardText> {subtitle}</CardText>
+                    <Button><a href="/recipe">View Recipe</a></Button>
+                    </CardBody>
+                    </Card>
+                    </Col>
+                </Row>
               </CSSTransition>
             ))}
           </TransitionGroup>

@@ -19,7 +19,6 @@ class Recipes extends Component {
         <div>
           <img src="https://picsum.photos/200" alt="food hero" />
           <div>
-          <EditRecipesList />
           </div>
           <div>
             <p>
@@ -29,7 +28,6 @@ class Recipes extends Component {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at posuere velit. Proin pellentesque neque lacus, sit amet ullamcorper ipsum semper a. Nunc tellus lorem, commodo sit amet metus non, varius scelerisque libero. Curabitur in odio a erat tincidunt tempus. Donec nec lacus pretium, suscipit nulla sit amet, hendrerit orci.
             </p>
           </div>
-          <RecipesList></RecipesList>
         </div>
       </div>
       </Container>

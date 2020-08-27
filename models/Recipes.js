@@ -4,13 +4,13 @@ const Schema = mongoose.Schema;
 //Recipe Schema
 
 const RecipeSchema = new Schema ({
-  title: {
+  name: {
     type: String,
     required: true
   },
-  body: {
+  subtitle: {
     type: String,
-    require: true
+    required: true
   },
   picture: {
     type: String,

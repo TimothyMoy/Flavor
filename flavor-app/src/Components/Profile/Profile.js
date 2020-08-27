@@ -2,6 +2,8 @@ import React , { Component } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import EditRecipesList from '../EditRecipesList/EditRecipesList';
+import NewRecipes from '../NewRecipes/NewRecipes';
 
 class Profile extends Component {
   state ={
@@ -38,11 +40,9 @@ class Profile extends Component {
           <Row>
             <p>Your Recipes</p>
             <p>Favorites</p>
-            <Button>
-              <a href="/newrecipe">Add Recipe</a>
-            </Button>
+           <NewRecipes />
           </Row>
-          <div>Recipe placeholder</div>
+          <EditRecipesList />
         </Col>
       </Row>
       </Container>
