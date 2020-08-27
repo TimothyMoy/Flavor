@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
-// Ingredients model
-const user = require('../../models/User');
+// User model
+
 const User = require('../../models/User');
 
 //@route post api/users
@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
 
   //Simple Validation
   if(!name || !email || !password) {
-    return res.status(400).json({ msg: 'Please enter all fields' })
+    return res.status(400).json({ msg: 'Please enter all fields' });
   }
 
   //Checking for existing user

@@ -16,7 +16,7 @@ import { register } from '../../actions/authAction';
 import { clearErrors } from '../../actions/errorAction';
 
 class RegisterModal extends Component {
-  state ={
+  state = {
     modal: false,
     name: '',
     email: '',

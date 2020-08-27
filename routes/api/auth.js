@@ -5,8 +5,7 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth')
 
-// Ingredients model
-const user = require('../../models/User');
+// User model
 const User = require('../../models/User');
 
 //@route post api/auth
@@ -14,10 +13,10 @@ const User = require('../../models/User');
 //@access Public
 
 router.post('/', (req, res) => {
-  const { name, email, password } = req.body;
+  const { email, password } = req.body;
 
   //Simple Validation
-  if(!name || !email || !password) {
+  if( !email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' })
   }
 
@@ -48,11 +47,10 @@ router.post('/', (req, res) => {
           }
         )
       })
-      
     })
 });
 
-//@route post api/auth/user
+//@route get api/auth/user
 //@desc get user data
 //@access Private
 
@@ -60,6 +58,6 @@ router.get('/user', auth, (req, res) => {
   User.findById(req.user.id)
     .select('-password')
     .then(user => res.json(user));
-})
+});
 
 module.exports = router;

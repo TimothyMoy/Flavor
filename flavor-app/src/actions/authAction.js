@@ -17,6 +17,8 @@ export const loadUser = () => (dispatch, getState) => {
   // User loading
   dispatch({ type: USER_LOADING });
 
+  
+
   axios.get('/api/auth/user', tokenConfig(getState))
     .then(res => dispatch({
       type: USER_LOADED,
@@ -73,9 +75,9 @@ export const login = ({ email, password }) => dispatch => {
       payload: res.data
     }))
     .catch(err => {
-      dispatch(returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL'));
+      dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
       dispatch({
-        type: LOGIN_FAIL
+        type: REGISTER_FAIL
       })
     })
 

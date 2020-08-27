@@ -25,7 +25,7 @@ router.post('/', auth, (req, res) => {
     name: req.body.name
   });
 
-  newIngredient.save().then(ingredient =>res.json(ingredient))
+  newIngredient.save().then(ingredients =>res.json(ingredients))
 });
 
 //@route DELETE api/ingredients/:id
@@ -33,8 +33,8 @@ router.post('/', auth, (req, res) => {
 //@access Private
 
 router.delete('/:id', auth, (req, res) => {
-  Ingredient.findById(req.params.id)
-    .then(ingredient => ingredient.remove().then(() => res.json({success: true})))
+  Ingredients.findById(req.params.id)
+    .then(ingredients => ingredients.remove().then(() => res.json({success: true})))
     .catch(err => res.status(404).json({success: false}));
 });
 
