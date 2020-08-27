@@ -1,0 +1,47 @@
+.remove-btn {
+  margin-right: 0.5rem;
+}
+
+.fade-enter{
+  opacity: 0.01;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #FDBF00;
+  border-color: #FDBF00;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #FF8856;
+  border-color: #FF8856;
+}
+
+.btn-primary a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-primary:hover a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.home {
+ 
+}

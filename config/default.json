@@ -1,0 +1,4 @@
+{
+  "mongoURI" : "mongodb+srv://moytimothy:pockys55@cluster0.qqj9k.mongodb.net/flavor?retryWrites=true&w=majority",
+  "jwtSecret": "ingredients_secret"
+}
