@@ -39,7 +39,7 @@ class RecipesList extends Component {
     return (
       <Container>
       <div>
-        <h1>New Recipes</h1>
+        <h3>New Recipes</h3>
         <ListGroup>
           <TransitionGroup className="recipes-list">
             <Row>
@@ -51,7 +51,7 @@ class RecipesList extends Component {
                     <CardImg top width="10%" src={`${picture}`} alt="Food image cap" />
                     <CardBody>
                     <CardText> {subtitle}</CardText>
-                    <Button className="btn-primary"><a href={`recipes/${recipes._id}`}>View Recipe</a></Button>
+                    <Button className="btn-primary"><a href={`/${recipes._id}`}>View Recipe</a></Button>
                     </CardBody>
                     </Card>
                     </Col>

@@ -39,7 +39,6 @@ class EditRecipesList extends Component {
     const { recipes } = this.props.recipes;
     return (
       <Container>
-      <div>
         <Row>
           <TransitionGroup className="recipes-list">
             {recipes.map(({_id,name,subtitle, picture}) => (
@@ -50,7 +49,7 @@ class EditRecipesList extends Component {
                       color="danger"
                       size="sm"
                       onClick={this.onDeleteClick.bind(this, _id)}
-                    >&times;
+                    >Delete
                     </Button>
                     <Card>
                     <CardTitle>{name}</CardTitle>
@@ -65,7 +64,6 @@ class EditRecipesList extends Component {
             ))}
           </TransitionGroup>
         </Row>
-      </div>
       </Container>
     )
   }

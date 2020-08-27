@@ -1,5 +1,6 @@
 .remove-btn {
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .fade-enter{
@@ -42,6 +43,76 @@
   text-decoration: none;
 }
 
-.home {
- 
+.card-title {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: .75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1), 0 3px 8px 0 rgba(0,0,0,0.1);
+  border: none;
+}
+
+.logo {
+  max-width: 160px;
+}
+
+.nav-link {
+  color: #a6ca51;
+}
+
+.nav-link:hover {
+  color: #5CA288;
+}
+
+a {
+  color:  #a6ca51;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5CA288;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+h3 {
+  margin-bottom: 2rem;
+}
+
+#home {
+  height: 100vh;
+  background-size: cover;
+  background-image: url('https://lh3.google.com/u/0/d/1rVZ5E_M1M4rYQbX6CkphXEpHH1i2HlEs=w1440-h821-iv1');
+}
+
+.hero {
+  margin-top: 8%;
+}
+
+.rlist {
+  display:flex;
+  justify-content: space-between;
+}
+
+.recipes-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.remove-btn {
+
 }

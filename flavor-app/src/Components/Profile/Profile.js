@@ -19,10 +19,10 @@ class Profile extends Component {
     return (
       <Container>
       <Row>
-        <Col  xs="2">
+        <Col xs="2">
           <img src="https://picsum.photos/100" alt="profile"></img>
         </Col>
-        <Col  xs="10">
+        <Col xs="10">
           <h2>{ user ? `${user.name}`: ''}</h2>
           <Button className="btn-primary">
             <a href="/editprofile">
@@ -31,16 +31,15 @@ class Profile extends Component {
           </Button>
         </Col>
       </Row>
-      <hr></hr>
+      <hr />
       <Row>
         <Col xs="4">
         <h2>About</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at posuere velit. Proin pellentesque neque lacus, sit amet ullamcorper ipsum semper a. Nunc tellus lorem, commodo sit amet metus non, varius scelerisque libero. Curabitur in odio a erat tincidunt tempus. Donec nec lacus pretium, suscipit nulla sit amet, hendrerit orci.</p>
         </Col>
         <Col xs="8">
-          <Row>
+          <Row className="rlist">
             <p>Your Recipes</p>
-            <p>Favorites</p>
            <NewRecipes />
           </Row>
           <EditRecipesList />

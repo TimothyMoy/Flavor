@@ -71,9 +71,9 @@ class AppNavbar extends Component {
     );
     return (
       <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/"><img src="../FlavorLogo.png"/></NavbarBrand>
+            <NavbarBrand href="/"><img className="logo" src="https://lh3.google.com/u/0/d/1mpil7xzTYG52LrtVgvuGn7bwrfrlTgXu=w1440-h821-iv1"/></NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>

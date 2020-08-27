@@ -16,6 +16,17 @@ router.get('/', (req, res) => {
     .then(recipes => res.json(recipes))
 });
 
+//@route GET api/recipes
+//@desc GET a recipes
+//@access Public
+
+router.get('/:id', (req, res) => {
+  Recipes.findById(req.params.id)
+    .populate({ path: 'recipes' })
+    .then(recipes => res.json(recipes))
+});
+
+
 //@route POST api/recipes
 //@desc Create a recipes
 //@access Private
