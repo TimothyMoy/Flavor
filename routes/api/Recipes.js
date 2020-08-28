@@ -22,8 +22,8 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Recipes.findById(req.params.id)
-    .populate({ path: 'recipes' })
     .then(recipes => res.json(recipes))
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 
@@ -39,6 +39,24 @@ router.post('/', auth, (req, res) => {
   });
 
   newRecipes.save().then(recipes =>res.json(recipes))
+});
+
+//@route POST api/recipes/:id
+//@desc Update a recipes
+//@access Private
+
+router.post('/:id', auth, (req, res) => {
+  Recipes.findById(req.params.id)
+    .then(recipes => {
+      recipes.name = req.body.name;
+      recipes.subtitle = req.body.subtitle;
+      recipes.picture = req.body.recipes;
+
+      recipes.save()
+        .then(() => res.json('Recipes update!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //@route DELETE api/recipes/:id

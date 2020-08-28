@@ -11,6 +11,6 @@ export default (
     <Route exact path='/' component={ Home }/>
     <Route path='/recipes' component={ RecipesList } />
     <Route path='/profile' component={ Profile } />
-    <Route path='/recipes/:id' component={ Recipes } />
+    <Route path='/recipe' component={ Recipes } />
   </Switch>
 );

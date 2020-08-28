@@ -1,8 +1,9 @@
 import React, { Component} from 'react';
+import { Link } from 'react-router-dom';
 import { Container, ListGroup, Col, Button, Row, Card, CardTitle, CardImg, CardBody, CardText } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { getRecipes, deleteRecipes, addRecipes } from '../../actions/recipesAction';
+import { getRecipes, deleteRecipes, addRecipes, findRecipes } from '../../actions/recipesAction';
 import PropTypes from 'prop-types';
 
 
@@ -12,30 +13,9 @@ class RecipesList extends Component {
     this.props.getRecipes()
   };
 
-  onDeleteClick = (id) => {
-    this.props.deleteRecipes(id);
-  };
-
-  onChange = e => {
-    this.setState({ [e.target.title]: e.target.value});
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-
-    const newRecipes ={
-      name: this.state.name,
-      subtitle: this.state.subtitle,
-      picture: this.state.picture
-    }
-
-    // add item via add item action
-    this.props.addRecipes(newRecipes);
-  }
-
-
   render() {
     const { recipes } = this.props.recipes;
+    console.log(recipes);
     return (
       <Container>
       <div>
@@ -51,7 +31,7 @@ class RecipesList extends Component {
                     <CardImg top width="10%" src={`${picture}`} alt="Food image cap" />
                     <CardBody>
                     <CardText> {subtitle}</CardText>
-                    <Button className="btn-primary"><a href={`/${recipes._id}`}>View Recipe</a></Button>
+                    <Button className="btn-primary"><Link to="/recipe">View Recipe</Link></Button>
                     </CardBody>
                     </Card>
                     </Col>
@@ -75,4 +55,4 @@ const mapStateToProps = state => ({
   recipes: state.recipes
 })
 
-export default connect(mapStateToProps, {getRecipes, deleteRecipes, addRecipes})(RecipesList);
+export default connect(mapStateToProps, {getRecipes})(RecipesList);

@@ -1,6 +1,7 @@
 export const GET_RECIPES = 'GET_RECIPES';
 export const ADD_RECIPES = 'ADD_RECIPES';
 export const FIND_RECIPES = 'FIND_RECIPES';
+export const PUT_RECIPES = 'PUT_RECIPES';
 export const DELETE_RECIPES = 'DELETE_RECIPES';
 export const RECIPES_LOADING = 'RECIPES_LOADING';
 

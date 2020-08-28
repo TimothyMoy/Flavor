@@ -15,6 +15,7 @@ function Home () {
       </Button>
         </Col>
       </Row>
+    <img src="https://lh3.googleusercontent.com/proxy/jA3tVnT8thkMNMzGjC1dJSyFhz-om5LwSt-P76jATw0XBgSxNrKsywvAcQVvfJQrYqdBVdLGl7bMvyL6Sq2h1cbogmCAAh6dSlZ4RYI7vZdp_yCdr6XWex3ydwyGxA" id="hero"/>
     </Container>
   )
 }

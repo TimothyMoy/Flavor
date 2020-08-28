@@ -1,4 +1,4 @@
-import { GET_RECIPES, ADD_RECIPES, DELETE_RECIPES, RECIPES_LOADING } from '../actions/types';
+import { GET_RECIPES, ADD_RECIPES, DELETE_RECIPES, RECIPES_LOADING, FIND_RECIPES, PUT_RECIPES } from '../actions/types';
 
 const initialState = {
     recipes: [],
@@ -8,6 +8,13 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case GET_RECIPES:
+      return {
+        ...state,
+        recipes: action.payload,
+        loading: true
+      };
+
+    case FIND_RECIPES:
       return {
         ...state,
         recipes: action.payload,
@@ -25,6 +32,12 @@ export default function(state = initialState, action) {
         ...state,
         recipes: [action.payload, ...state.recipes]
       };
+
+    case PUT_RECIPES:
+    return {
+      ...state,
+      recipes: state.recipes.filter(recipes => recipes._id !== action.payload)
+    };
 
     case RECIPES_LOADING:
       return {

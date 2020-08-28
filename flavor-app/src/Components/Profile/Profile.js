@@ -35,11 +35,11 @@ class Profile extends Component {
       <Row>
         <Col xs="4">
         <h2>About</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse at posuere velit. Proin pellentesque neque lacus, sit amet ullamcorper ipsum semper a. Nunc tellus lorem, commodo sit amet metus non, varius scelerisque libero. Curabitur in odio a erat tincidunt tempus. Donec nec lacus pretium, suscipit nulla sit amet, hendrerit orci.</p>
+        <p>Let the community know a bit more about you and your recipes!</p>
         </Col>
         <Col xs="8">
           <Row className="rlist">
-            <p>Your Recipes</p>
+            <h2>Your Recipes</h2>
            <NewRecipes />
           </Row>
           <EditRecipesList />
