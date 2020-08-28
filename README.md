@@ -28,7 +28,7 @@ Difficulty level
 Preparation Steps
 Ingredient list
 
-Tech used
+<b>Tech used</b>
 MongoAtlas
   To store recipe data
   To create and read user id, username, and encrypted passwords.
@@ -41,12 +41,12 @@ ReactStrap
   Styling error handling.
 
 What is one feature you're particularly proud of? (show code)
-,,,
+
 Simple Validation
   if( !email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' })
   }
-,,,
+
 Challenges you faced
   React was more challenging then I initially thought. I enjoy the components aspect and managing the different building blocks.
 
