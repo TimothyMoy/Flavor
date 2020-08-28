@@ -1,4 +1,4 @@
-*Overview
+#Overview
 
 ##Why Recipes?
 I was motivated to build this project because I've been cooking at lot more at home since quarentine started. I wanted to have a place to keep track of the recipes that my wife likes to eat.
